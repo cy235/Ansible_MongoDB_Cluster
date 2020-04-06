@@ -10,21 +10,21 @@ set static IP for each machine by modifying the following file:
 vi /etc/sysconfig/network-scripts/ifcfg-ens33
 ```
 replace `BOOTPROTO="dhcp"` with `BOOTPROTO="static"`, and add your IP address, for example:</br>
-my machine A:
+machine A:
 ```
 IPADDR=192.168.226.130
 GATEWAY=192.168.226.2
 DNS1=192.168.226.2
 NETMASK=255.255.255.0
 ```
-my machine B:
+machine B:
 ```
 IPADDR=192.168.226.131
 GATEWAY=192.168.226.2
 DNS1=192.168.226.2
 NETMASK=255.255.255.0
 ```
-my machine C:
+machine C:
 ```
 IPADDR=192.168.226.132
 GATEWAY=192.168.226.2
