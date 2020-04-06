@@ -1,4 +1,4 @@
-# Create a MongoDB sharded cluster
+# Create a MongoDB Sharded Cluster
 
 ## Prerequisite
 1. 3 machines A, B, C installed with CentOS 7, respectively
