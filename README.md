@@ -5,11 +5,11 @@
 2. set the static IP for each machine
 3. disable the firewall of each machine
 
-set static IP for each machine:
+set static IP for each machine by modifying the following file:
 ```
 vi /etc/sysconfig/network-scripts/ifcfg-ens33
 ```
-replace `BOOTPROTO=”dhcp”` with `BOOTPROTO=”static”`, and add your IP address, for example:</br>
+replace `BOOTPROTO="dhcp"` with `BOOTPROTO="static"`, and add your IP address, for example:</br>
 my machine A:
 ```
 IPADDR=192.168.226.130
