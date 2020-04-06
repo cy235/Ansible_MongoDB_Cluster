@@ -74,7 +74,6 @@ bind_ip=192.168.226.130
 port=27400      
 fork=true                   
 configsvr=true
-
 ```
 Machine B: </br>
 ```
@@ -89,7 +88,6 @@ bind_ip=192.168.226.131
 port=27400      
 fork=true                   
 configsvr=true
-
 ```
 Machine C: </br>
 ```
@@ -104,7 +102,6 @@ bind_ip=192.168.226.132
 port=27400      
 fork=true                   
 configsvr=true
-
 ```
 Then, excuting following commands in 3 machines, respectively
 ```
@@ -282,7 +279,6 @@ bind_ip=192.168.226.130 # the IP of the selected machine
 port=20000   
 fork=true                   
 configdb=ConfSet/192.168.226.130:27400, 192.168.226.131:27400, 192.168.226.132:27400
-
 ```
 
 start mongos:
@@ -290,7 +286,6 @@ start mongos:
 nohup ./mongos -f conf/mongossvr.conf &
 ```
 connect mongos:
-
 ```
 cd /usr/local/mongodb/bin
 ./mongo 192.168.226.130:20000
