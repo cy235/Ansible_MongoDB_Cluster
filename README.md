@@ -60,7 +60,7 @@ mkdir conf
 cd conf
 vi confsvf.conf 
 ```
-Machine A: <\br>
+Machine A: </br>
 ```
 #confsvf.conf 
 dbpath=/data/confsvr                             
@@ -112,7 +112,7 @@ cd /usr/local/mongodb/bin
 ```
 
 ## Mongo shards configuration
-create `set1svr.conf`, `set2svr.conf`and `set3svr.conf` under folder /usr/local.mongodb/bin/conf/ in machine A:<\br>
+create `set1svr.conf`, `set2svr.conf`and `set3svr.conf` under folder /usr/local.mongodb/bin/conf/ in machine A:</br>
 ```
 #set1svr.conf
 dbpath=/data/shard1                            
@@ -152,7 +152,7 @@ port=27103
 fork=true                   
 shardsvr=true
 ```
-create `set1svr.conf`, `set2svr.conf`and `set3svr.conf` under folder /usr/local.mongodb/bin/conf/ in machine B:<\br>
+create `set1svr.conf`, `set2svr.conf`and `set3svr.conf` under folder /usr/local.mongodb/bin/conf/ in machine B:</br>
 ```
 #set1svr.conf
 dbpath=/data/shard1                            
@@ -192,7 +192,7 @@ port=27103
 fork=true                   
 shardsvr=true
 ```
-create `set1svr.conf`, `set2svr.conf`and `set3svr.conf` under folder /usr/local.mongodb/bin/conf/ in machine C:<\br>
+create `set1svr.conf`, `set2svr.conf`and `set3svr.conf` under folder /usr/local.mongodb/bin/conf/ in machine C:</br>
 ```
 #set1svr.conf
 dbpath=/data/shard1                            
@@ -238,7 +238,7 @@ A: 192.168.226.130
 B: 192.168.226.131
 C: 912.168.226.132
 A: mongos   config(primary)27400     setA(primary)     setB (secondary)   setC(arbiter)
-B: mongos   config(secondary)27400   setA(arbiter)   setB (primary)     setC(secondary)
-C: mongos   config(secondary)27400   setA(secondary)   setB (arbiter)   setC(primary)
+B: mongos   config(secondary)27400   setA(arbiter)     setB (primary)     setC(secondary)
+C: mongos   config(secondary)27400   setA(secondary)   setB (arbiter)     setC(primary)
 ```
 
