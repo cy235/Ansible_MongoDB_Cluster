@@ -232,7 +232,12 @@ port=27103
 fork=true                   
 shardsvr=true
 ```
+Then, run the following in 3 different machines
+./mongod -f conf/set1svr.conf
+./mongod -f conf/set2svr.conf
+./mongod -f conf/set3svr.conf
 
+In the next, we connect the nodes according to the following table:
 ```
 A: 192.168.226.130
 B: 192.168.226.131
@@ -240,5 +245,57 @@ C: 912.168.226.132
 A: mongos   config(primary)27400     setA(primary)     setB (secondary)   setC(arbiter)
 B: mongos   config(secondary)27400   setA(arbiter)     setB (primary)     setC(secondary)
 C: mongos   config(secondary)27400   setA(secondary)   setB (arbiter)     setC(primary)
+```
+In the machine A: </br>
+```
+./mongo 192.168.226.130:27101
+
+rs1:PRIMARY> rs.initiate()
+rs.add("192.168.226.132:27101")
+rs.add({host:"192.168.226.131:27101",arbiterOnly:true})
+```
+In the machine B: </br>
+```
+./mongo 192.168.226.131:27102
+rs1:PRIMARY> rs.initiate()
+rs.add("192.168.226.130:27102")
+rs.add({host:"192.168.226.132:27102",arbiterOnly:true})
+```
+In the machine C:</br>
+```
+./mongo 192.168.226.132:27103
+rs1:PRIMARY> rs.initiate()
+rs.add("192.168.226.131:27103")
+rs.add({host:"192.168.226.130:27103",arbiterOnly:true})
+```
+
+## Mongos service configuration
+
+select a machine, e.g., machine A, and create a file mongossvr.conf under the folder /usr/local/mongodb/bin/conf
+```
+#mongossvr.conf
+logpath=/data/log/mongossvr.log                 
+pidfilepath=/data/mongossvr.pid            
+logappend=true
+bind_ip=192.168.226.130 # the IP of the selected machine
+port=20000   
+fork=true                   
+configdb=ConfSet/192.168.226.130:27400, 192.168.226.131:27400, 192.168.226.132:27400
+
+```
+
+start mongos:
+```
+nohup ./mongos -f conf/mongossvr.conf &
+```
+connect mongos:
+
+```
+cd /usr/local/mongodb/bin
+./mongo 192.168.226.130:20000
+mongos> use admin  # this step is essential
+db.runCommand({addshard: 'rs1/192.168.226.130:27101, 192.168.226.131:27101, 192.168.226.132:27101'})
+db.runCommand({addshard: 'rs2/192.168.226.130:27102, 192.168.226.131:27102, 192.168.226.132:27102'})
+db.runCommand({addshard: 'rs3/192.168.226.130:27103, 192.168.226.131:27103, 192.168.226.132:27103'})
 ```
 
