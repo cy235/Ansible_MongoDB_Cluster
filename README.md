@@ -4,6 +4,7 @@
 1. 3 machines A, B, C installed with CentOS 7, respectively
 2. set the static IP for each machine
 3. disable the firewall of each machine
+
 set static IP for each machine:
 ```
 vi /etc/sysconfig/network-scripts/ifcfg-ens33
