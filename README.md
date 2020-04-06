@@ -51,7 +51,7 @@ cd /data
 mkdir /data/confsvr /data/log /data/shard1 /data/shard2 /data/shard3
 ```
 
-whenever there are unexpected errors, you can killall mongo services and remove and recreate above folders to avoid conflicts when you rerun the mongo.
+whenever there are unexpected errors, you can kill all mongo services, then remove and recreate above folders to avoid conflicts when you rerun the mongo.
 
 ## Mongod service configuration
 create `confsvf.conf` in each machine
