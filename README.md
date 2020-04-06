@@ -75,7 +75,7 @@ fork=true
 configsvr=true
 
 ```
-Machine B: <\br>
+Machine B: </br>
 ```
 #confsvf.conf 
 dbpath=/data/confsvr                             
@@ -90,7 +90,7 @@ fork=true
 configsvr=true
 
 ```
-Machine C: <\br>
+Machine C: </br>
 ```
 #confsvf.conf 
 dbpath=/data/confsvr                             
