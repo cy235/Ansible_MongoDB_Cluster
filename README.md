@@ -8,7 +8,7 @@ set static IP for each machine:
 ```
 vi /etc/sysconfig/network-scripts/ifcfg-ens33
 ```
-replace `BOOTPROTO=”dhcp”` with `BOOTPROTO=”static”`, and add your IP address, for example:<\>
+replace `BOOTPROTO=”dhcp”` with `BOOTPROTO=”static”`, and add your IP address, for example:</br>
 my machine A:
 ```
 IPADDR=192.168.226.130
