@@ -3,7 +3,7 @@
 ## Overview of MongoDB Sharded Cluster
 ![image](https://github.com/cy235/MongoDB_Cluster/blob/master/MongoDB_01.png)
 ## Configuration of MongoDB Sharded Cluster
-![image](https://github.com/cy235/MongoDB_Cluster/blob/master/MongoDB_2.png)
+![image](https://github.com/cy235/MongoDB_Cluster/blob/master/MongoDB_02.png)
 ## Prerequisite
 1. 3 machines A, B, C installed with CentOS 7, respectively
 2. set the static IP for each machine
