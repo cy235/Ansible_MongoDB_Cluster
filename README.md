@@ -1,7 +1,7 @@
 # Create a MongoDB Sharded Cluster
 
 ## Overview of MongoDB Sharded Cluster
-![image](https://github.com/cy235/MongoDB_Cluster/blob/master/MongoDB_1.png)
+![image](https://github.com/cy235/MongoDB_Cluster/blob/master/MongoDB_01.png)
 ## Configuration of MongoDB Sharded Cluster
 ![image](https://github.com/cy235/MongoDB_Cluster/blob/master/MongoDB_2.png)
 ## Prerequisite
