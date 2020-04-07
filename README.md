@@ -1,7 +1,9 @@
 # Create a MongoDB Sharded Cluster
 
 ## Structure of MonoDB Sharded Cluster
-![image](https://github.com/cy235/Deploy_Dask_Jupyter_K8S_AWS/blob/master/load_balancer.jpg)
+![image](https://github.com/cy235/MongoDB_Cluster/blob/master/MongoDB1.pdf)
+## Configuration of MonoDB Sharded Cluster
+![image](https://github.com/cy235/MongoDB_Cluster/blob/master/MongoDB.pdf)
 ## Prerequisite
 1. 3 machines A, B, C installed with CentOS 7, respectively
 2. set the static IP for each machine
