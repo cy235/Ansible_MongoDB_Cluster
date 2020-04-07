@@ -1,9 +1,14 @@
 # Create a MongoDB Sharded Cluster
 
 ## Overview of MongoDB Sharded Cluster
+This figure show the process how end users access the target data in MongoDB servers.
 ![image](https://github.com/cy235/MongoDB_Cluster/blob/master/MongoDB_01.png)
+First, the end user put a request to the Mongos servers, then the Mongo servers obtain the sharding configuration from the configuration clusters according to the user's request, and finally the user will access the target data.
 ## Configuration of MongoDB Sharded Cluster
+The following figure show the specific configuration details for MongoDB clusters with 3 nodes/machines,
 ![image](https://github.com/cy235/MongoDB_Cluster/blob/master/MongoDB_02.png)
+ where in configuration cluster no arbiter set is allowed, while both arbiter and secondary sets are allowed in
+replica sets.
 ## Prerequisite
 1. 3 machines A, B, C installed with CentOS 7, respectively
 2. set the static IP for each machine
