@@ -1,14 +1,17 @@
-docker:
-  users:
-    - alex
-  name: docker-ce
-  repo: http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo
-  script_file: /tmp/install_docker.sh
-  registry_mirrors: https://registry.docker-cn.com
+# The global variable file mongodb installation #
 
-pip:
-  index_url: http://pypi.douban.com/simple
-  trusted_host: pypi.douban.com
+# The port in which mongos server should listen on 
+mongos_port: 20000
 
+# The port for mongod server
+mongoc_port: 27400
 
-log_file: /var/log/docker_install.log
+#The port for mongo shards
+mongoshd_port1: 27101
+mongoshd_port1: 27102
+mongoshd_port1: 27103
+
+# the IP for each machine
+IP_A: 192.168.226.229
+IP_B: 192.168.226.231
+IP_C: 192.168.226.232
