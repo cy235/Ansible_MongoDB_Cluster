@@ -1,3 +1,4 @@
-[node]
-centos04 ansible_ssh_host=192.168.31.44
-centos05 ansible_ssh_host=192.168.31.109
+[mongo-servers]
+192.168.226.129
+192.168.226.131
+192.168.226.132
