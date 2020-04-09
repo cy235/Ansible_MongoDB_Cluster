@@ -1,5 +1,5 @@
 ---
-- hosts: mongo-servers
+- hosts: machines
   tasks:
   - name: synchronize the /data/ folder to each MongoDB servers
     synchronize:
