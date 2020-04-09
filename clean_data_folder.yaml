@@ -1,0 +1,7 @@
+---
+- hosts: mongo-servers
+  tasks:
+  - name: synchronize the /data/ folder to each host
+    synchronize:
+      src: /data/
+      dest: /data/
