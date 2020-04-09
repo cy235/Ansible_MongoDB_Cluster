@@ -1,15 +1,15 @@
 # Create a MongoDB Sharded Cluster
 
-## Overview of MongoDB Sharded Cluster
+## 1. Overview of MongoDB Sharded Cluster
 This figure show the process how end users access the target data in MongoDB servers.
 ![image](https://github.com/cy235/MongoDB_Cluster/blob/master/MongoDB_01.png)
 First, the end user put a request to the Mongos servers, then the Mongo servers obtain the sharding configuration from the configuration clusters according to the user's request, and finally the user will access the target data.
-## Configuration of MongoDB Sharded Cluster
+## 2. Configuration of MongoDB Sharded Cluster
 The following figure show the specific configuration details for MongoDB clusters with 3 nodes/machines,
 ![image](https://github.com/cy235/MongoDB_Cluster/blob/master/MongoDB_02.png)
  where in configuration cluster no arbiter set is allowed, while both arbiter and secondary sets are allowed in
 replica sets.
-## Prerequisite
+## 3. Prerequisite
 1. 3 machines A, B, C installed with CentOS 7, respectively
 2. set the static IP for each machine
 3. disable the firewall of each machine
@@ -45,14 +45,14 @@ disable the firewall by excuting following command in each machine:
 systemctl disable firewalld
 ```
 
-##  Install MongoDB
+## 4. Install MongoDB
 Install MongoDB in 3 machines, respectively by excuting the following command lines: 
 ```
 curl -O https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-4.0.10.tgz
 tar zxvf mongodb-linux-x86_64-4.0.10.tgz
 mv  mongodb-linux-x86_64-4.0.10/   /usr/local/mongodb
 ```
-## Create necessary folders
+## 5. Create necessary folders
 
 ```
 mkdir /data
@@ -62,7 +62,7 @@ mkdir /data/confsvr /data/log /data/shard1 /data/shard2 /data/shard3
 
 whenever there are unexpected errors, you can kill all mongo services, then remove and recreate above folders to avoid conflicts when you rerun the mongo.
 
-## Mongod service configuration
+## 6. Mongod service configuration
 create `confsvf.conf` in each machine
 ```
 cd /usr/local/mongodb/bin
@@ -118,7 +118,7 @@ cd /usr/local/mongodb/bin
 ./mongod -f conf/confsvr.conf
 ```
 
-## Mongo shards configuration
+## 7. Mongo shards configuration
 create `set1svr.conf`, `set2svr.conf`and `set3svr.conf` under folder /usr/local.mongodb/bin/conf/ in machine A:</br>
 ```
 #set1svr.conf
@@ -276,7 +276,7 @@ rs.add("192.168.226.131:27103")
 rs.add({host:"192.168.226.130:27103",arbiterOnly:true})
 ```
 
-## Mongos service configuration
+## 8. Mongos service configuration
 
 select a machine, e.g., machine A, and create a file mongossvr.conf under the folder /usr/local/mongodb/bin/conf
 ```
