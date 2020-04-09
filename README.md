@@ -62,6 +62,11 @@ mkdir /data/confsvr /data/log /data/shard1 /data/shard2 /data/shard3
 
 whenever there are unexpected errors, you can kill all mongo services, then remove and recreate above folders to avoid conflicts when you rerun the mongo.
 
+You can also do it with ansible:
+```
+[root@master ansible]# ansible-playbook clean_data_folder.yaml 
+```
+
 ## 6. Mongod service configuration
 create `confsvf.conf` in each machine
 ```
