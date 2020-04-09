@@ -1,7 +1,10 @@
 ---
-- hosts: machines
-  tasks:
-  - name: synchronize the /data/ folder to each MongoDB servers
+- hosts: machines                                     
+  tasks:                                 
+  - name: synchronize the clean folder /data/ in the control machine to each host              
     synchronize:
-      src: /data/
+      src: /data/            
       dest: /data/
+      delete: yes
+      recursive: yes
+
