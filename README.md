@@ -257,7 +257,7 @@ Then, run the following in 3 different machines
 ./mongod -f conf/set2svr.conf
 ./mongod -f conf/set3svr.conf
 
-You can also creat do it with ansible:
+You can also do it with ansible:
 ```
 [root@master ansible]# ansible-playbook mongo_run.yaml 
 ```
