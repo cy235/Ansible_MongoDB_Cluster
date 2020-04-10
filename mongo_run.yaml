@@ -1,0 +1,27 @@
+---
+- hosts: machine-A
+  tasks:
+  - name: start mongod1
+    command: /usr/local/mongodb/bin/mongod -f /usr/local/mongodb/bin/conf/set1svr.conf
+  - name: start mongod2
+    command: /usr/local/mongodb/bin/mongod -f /usr/local/mongodb/bin/conf/set2svr.conf
+  - name: start mongod3
+    command: /usr/local/mongodb/bin/mongod -f /usr/local/mongodb/bin/conf/set3svr.conf
+
+- hosts: machine-B
+  tasks:
+  - name: start mongod1
+    command: /usr/local/mongodb/bin/mongod -f /usr/local/mongodb/bin/conf/set1svr.conf
+  - name: start mongod2
+    command: /usr/local/mongodb/bin/mongod -f /usr/local/mongodb/bin/conf/set2svr.conf
+  - name: start mongod3
+    command: /usr/local/mongodb/bin/mongod -f /usr/local/mongodb/bin/conf/set3svr.conf
+
+- hosts: machine-C
+  tasks:
+  - name: start mongod1
+    command: /usr/local/mongodb/bin/mongod -f /usr/local/mongodb/bin/conf/set1svr.conf
+  - name: start mongod2
+    command: /usr/local/mongodb/bin/mongod -f /usr/local/mongodb/bin/conf/set2svr.conf
+  - name: start mongod3
+    command: /usr/local/mongodb/bin/mongod -f /usr/local/mongodb/bin/conf/set3svr.conf
