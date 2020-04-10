@@ -244,11 +244,18 @@ port=27103
 fork=true                   
 shardsvr=true
 ```
+
+## 8. Start mongod Services for Each Machine
 Then, run the following in 3 different machines
 ./mongod -f conf/set1svr.conf
 ./mongod -f conf/set2svr.conf
 ./mongod -f conf/set3svr.conf
 
+You can also creat do it with ansible:
+
+[root@master ansible]# ansible-playbook mongon_run.yaml 
+
+## 9. Build Connections for Shards in Each Machine
 In the next, we connect the nodes according to the following table:
 ```
 A: 192.168.226.129
@@ -280,8 +287,10 @@ rs1:PRIMARY> rs.initiate()
 rs.add("192.168.226.131:27103")
 rs.add({host:"192.168.226.129:27103",arbiterOnly:true})
 ```
+You can also do it with ansible:
+[root@master ansible]# ansible-playbook mongon_connect.yaml 
 
-## 8. Mongos service configuration
+## 10. Mongos service configuration
 
 select a machine, e.g., machine A, and create a file mongossvr.conf under the folder /usr/local/mongodb/bin/conf
 ```
