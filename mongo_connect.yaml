@@ -1,0 +1,65 @@
+---
+- hosts: machine-A
+  tasks:
+  - name: login A and initiate
+    shell: /usr/local/mongodb/bin/mongo {{host_A}}:{{port1}} --eval 'printjson(rs.initiate())'
+
+  - name: pause 5 seconds
+    pause: seconds=5
+
+  - name: Add C
+    shell: /usr/local/mongodb/bin/mongo {{host_A}}:{{port1}} --eval 'printjson(rs.add("{{host_C}}:{{port1}}"))'
+
+  - name: pause 20 seconds
+    pause: seconds=20
+
+  - name: Add B
+    shell: /usr/local/mongodb/bin/mongo {{host_A}}:{{port1}} --eval 'printjson(rs.add({host:"{{host_B}}:{{port1}}",arbiterOnly:true}))'
+
+  - name: pause 20 seconds
+    pause: seconds=20
+
+
+
+- hosts: machine-B
+  tasks:
+  - name: login B and initiate
+    shell: /usr/local/mongodb/bin/mongo {{host_B}}:{{port2}} --eval 'printjson(rs.initiate())'
+
+  - name: pause 5 seconds
+    pause: seconds=5
+ 
+  - name: Add A
+    shell: /usr/local/mongodb/bin/mongo {{host_B}}:{{port2}} --eval 'printjson(rs.add("{{host_A}}:{{port2}}"))'
+ 
+  - name: pause 20 seconds
+    pause: seconds=20 
+ 
+  - name: Add C
+    shell: /usr/local/mongodb/bin/mongo {{host_B}}:{{port2}} --eval 'printjson(rs.add({host:"{{host_C}}:{{port2}}",arbiterOnly:true}))'
+ 
+  - name: pause 20 seconds
+    pause: seconds=20
+
+
+
+- hosts: machine-C
+  tasks:
+  - name: login C and initiate
+    shell: /usr/local/mongodb/bin/mongo {{host_C}}:{{port3}} --eval 'printjson(rs.initiate())'
+ 
+  - name: pause 5 seconds
+    pause: seconds=5
+
+  - name: Add B
+    shell: /usr/local/mongodb/bin/mongo {{host_C}}:{{port3}} --eval 'printjson(rs.add("{{host_B}}:{{port3}}"))'
+  
+  - name: pause 20 seconds
+    pause: seconds=20
+
+  - name: Add A
+    shell: /usr/local/mongodb/bin/mongo {{host_C}}:{{port3}} --eval 'printjson(rs.add({host:"{{host_A}}:{{port3}}",arbiterOnly:true}))'
+
+  - name: pause 20 seconds
+    pause: seconds=20
+
