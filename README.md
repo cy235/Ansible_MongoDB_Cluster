@@ -21,7 +21,7 @@ vi /etc/sysconfig/network-scripts/ifcfg-ens33
 replace `BOOTPROTO="dhcp"` with `BOOTPROTO="static"`, and add your IP address, for example:</br>
 machine A:
 ```
-IPADDR=192.168.226.130
+IPADDR=192.168.226.129
 GATEWAY=192.168.226.2
 DNS1=192.168.226.2
 NETMASK=255.255.255.0
@@ -84,7 +84,7 @@ pidfilepath=/data/confsvr.pid
 directoryperdb=true
 logappend=true
 replSet=ConfSet                   
-bind_ip=192.168.226.130 
+bind_ip=192.168.226.129
 port=27400      
 fork=true                   
 configsvr=true
@@ -133,7 +133,7 @@ pidfilepath=/data/shard1.pid
 directoryperdb=true
 logappend=true
 replSet=rs1                 
-bind_ip=192.168.226.130 
+bind_ip=192.168.226.129 
 port=27101     
 fork=true                   
 shardsvr=true
@@ -146,7 +146,7 @@ pidfilepath=/data/shard2.pid
 directoryperdb=true
 logappend=true
 replSet=rs2                 
-bind_ip=192.168.226.130 
+bind_ip=192.168.226.129 
 port=27102     
 fork=true                   
 shardsvr=true
@@ -159,7 +159,7 @@ pidfilepath=/data/shard3.pid
 directoryperdb=true
 logappend=true
 replSet=rs3                 
-bind_ip=192.168.226.130 
+bind_ip=192.168.226.129 
 port=27103     
 fork=true                   
 shardsvr=true
@@ -251,7 +251,7 @@ Then, run the following in 3 different machines
 
 In the next, we connect the nodes according to the following table:
 ```
-A: 192.168.226.130
+A: 192.168.226.129
 B: 192.168.226.131
 C: 912.168.226.132
 A: mongos   config(primary)27400     setA(primary)     setB (secondary)   setC(arbiter)
@@ -260,7 +260,7 @@ C: mongos   config(secondary)27400   setA(secondary)   setB (arbiter)     setC(p
 ```
 In the machine A: </br>
 ```
-./mongo 192.168.226.130:27101
+./mongo 192.168.226.129:27101
 
 rs1:PRIMARY> rs.initiate()
 rs.add("192.168.226.132:27101")
@@ -270,7 +270,7 @@ In the machine B: </br>
 ```
 ./mongo 192.168.226.131:27102
 rs1:PRIMARY> rs.initiate()
-rs.add("192.168.226.130:27102")
+rs.add("192.168.226.129:27102")
 rs.add({host:"192.168.226.132:27102",arbiterOnly:true})
 ```
 In the machine C:</br>
@@ -278,7 +278,7 @@ In the machine C:</br>
 ./mongo 192.168.226.132:27103
 rs1:PRIMARY> rs.initiate()
 rs.add("192.168.226.131:27103")
-rs.add({host:"192.168.226.130:27103",arbiterOnly:true})
+rs.add({host:"192.168.226.129:27103",arbiterOnly:true})
 ```
 
 ## 8. Mongos service configuration
@@ -289,10 +289,10 @@ select a machine, e.g., machine A, and create a file mongossvr.conf under the fo
 logpath=/data/log/mongossvr.log                 
 pidfilepath=/data/mongossvr.pid            
 logappend=true
-bind_ip=192.168.226.130 # the IP of the selected machine
+bind_ip=192.168.226.129 # the IP of the selected machine
 port=20000   
 fork=true                   
-configdb=ConfSet/192.168.226.130:27400, 192.168.226.131:27400, 192.168.226.132:27400
+configdb=ConfSet/192.168.226.129:27400, 192.168.226.131:27400, 192.168.226.132:27400
 ```
 
 start mongos:
@@ -302,10 +302,10 @@ nohup ./mongos -f conf/mongossvr.conf &
 connect mongos:
 ```
 cd /usr/local/mongodb/bin
-./mongo 192.168.226.130:20000
+./mongo 192.168.226.129:20000
 mongos> use admin  # this step is essential
-db.runCommand({addshard: 'rs1/192.168.226.130:27101, 192.168.226.131:27101, 192.168.226.132:27101'})
-db.runCommand({addshard: 'rs2/192.168.226.130:27102, 192.168.226.131:27102, 192.168.226.132:27102'})
-db.runCommand({addshard: 'rs3/192.168.226.130:27103, 192.168.226.131:27103, 192.168.226.132:27103'})
+db.runCommand({addshard: 'rs1/192.168.226.129:27101, 192.168.226.131:27101, 192.168.226.132:27101'})
+db.runCommand({addshard: 'rs2/192.168.226.129:27102, 192.168.226.131:27102, 192.168.226.132:27102'})
+db.runCommand({addshard: 'rs3/192.168.226.129:27103, 192.168.226.131:27103, 192.168.226.132:27103'})
 ```
 
