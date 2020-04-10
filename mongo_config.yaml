@@ -1,0 +1,29 @@
+---
+- hosts: machine-A
+  tasks:
+  - name: synchronize the configuration of A to host A
+    synchronize:
+      src: /etc/ansible/mongo_config/machine_A/
+      dest: /usr/local/mongodb/bin/conf/ 
+      delete: yes   # delete the files that are not found in srs folder
+      recursive: yes
+
+
+- hosts: machine-B
+  tasks:
+  - name: synchronize the configuration of B to host B
+    synchronize:
+      src: /etc/ansible/mongo_config/machine_B/
+      dest: /usr/local/mongodb/bin/conf/
+      delete: yes   # delete the files that are not found in srs folder
+      recursive: yes
+
+
+- hosts: machine-C
+  tasks:
+  - name: synchronize the configuration of C to host C
+    synchronize:
+      src: /etc/ansible/mongo_config/machine_C/
+      dest: /usr/local/mongodb/bin/conf/
+      delete: yes   # delete the files that are not found in srs folder
+      recursive: yes
