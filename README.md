@@ -244,6 +244,10 @@ port=27103
 fork=true                   
 shardsvr=true
 ```
+You can also do step 6 and step 7 with ansible:
+```
+[root@master ansible]# ansible-playbook mongon_config.yaml
+```
 
 ## 8. Start mongod Services for Each Machine
 Then, run the following in 3 different machines
@@ -288,7 +292,9 @@ rs.add("192.168.226.131:27103")
 rs.add({host:"192.168.226.129:27103",arbiterOnly:true})
 ```
 You can also do it with ansible:
-[root@master ansible]# ansible-playbook mongon_connect.yaml 
+```
+[root@master ansible]# ansible-playbook mongo_connect.yaml 
+```
 
 ## 10. Mongos service configuration
 
