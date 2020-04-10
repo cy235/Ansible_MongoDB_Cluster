@@ -64,7 +64,7 @@ mkdir /data/confsvr /data/log /data/shard1 /data/shard2 /data/shard3
 
 whenever there are unexpected errors, you can kill all mongo services, then remove and recreate above folders to avoid conflicts when you rerun the mongo.
 
-You can also creat the above clean folder `/data/` in a control machine, then synchronize this folder to each machines with ansible:
+You can also creat the above clean folder `/data/` in a control machine, then synchronize this folder to each machines with Ansible:
 ```
 [root@master ansible]# ansible-playbook clean_data_folder.yaml 
 ```
@@ -246,7 +246,7 @@ port=27103
 fork=true                   
 shardsvr=true
 ```
-You can also do step 6 and step 7 with ansible:
+You can also do step 6 and step 7 with Ansible:
 ```
 [root@master ansible]# ansible-playbook mongo_config.yaml
 ```
@@ -257,7 +257,7 @@ Then, run the following in 3 different machines
 ./mongod -f conf/set2svr.conf
 ./mongod -f conf/set3svr.conf
 
-You can also do it with ansible:
+You can also do it with Ansible:
 ```
 [root@master ansible]# ansible-playbook mongo_run.yaml 
 ```
@@ -294,7 +294,7 @@ rs1:PRIMARY> rs.initiate()
 rs.add("192.168.226.131:27103")
 rs.add({host:"192.168.226.129:27103",arbiterOnly:true})
 ```
-You can also do it with ansible:
+You can also do it with Ansible:
 ```
 [root@master ansible]# ansible-playbook mongo_connect.yaml 
 ```
