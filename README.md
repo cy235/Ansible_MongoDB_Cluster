@@ -1,7 +1,7 @@
 # Create a MongoDB Sharded Cluster
 
 ## 1. Overview of MongoDB Sharded Cluster
-This repo shows how to create a MongoDB sharded cluster with Ansible play book. All the steps and configuration details are straightforward and easy to understand.    
+This repo shows how to create a MongoDB sharded cluster with Ansible. All the steps and configuration details are straightforward and easy to understand.    
 
 This figure show the process how end users access the target data in MongoDB servers.
 ![image](https://github.com/cy235/MongoDB_Cluster/blob/master/MongoDB_01.png)
