@@ -12,7 +12,7 @@ The following figure show the specific configuration details for MongoDB cluster
  where in configuration cluster no arbiter set is allowed, while both arbiter and secondary sets are allowed in
 replica sets.
 ## 3. Prerequisite
-1. 3 machines A, B, C installed with CentOS 7, respectively
+1. 3 machines A, B, C installed with CentOS, respectively
 2. set the static IP for each machine
 3. disable the firewall of each machine
 
