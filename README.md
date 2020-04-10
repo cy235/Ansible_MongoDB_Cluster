@@ -1,6 +1,7 @@
 # Create a MongoDB Sharded Cluster
 
 ## 1. Overview of MongoDB Sharded Cluster
+This repo shows how to create a MongoDB sharded cluster with Ansible play book. All the steps and configurations details are straightforward and easy to understand.    
 This figure show the process how end users access the target data in MongoDB servers.
 ![image](https://github.com/cy235/MongoDB_Cluster/blob/master/MongoDB_01.png)
 First, the end user put a request to the Mongos servers, then the Mongo servers obtain the sharding configuration from the configuration clusters according to the user's request, and finally the user will access the target data.
@@ -246,7 +247,7 @@ shardsvr=true
 ```
 You can also do step 6 and step 7 with ansible:
 ```
-[root@master ansible]# ansible-playbook mongon_config.yaml
+[root@master ansible]# ansible-playbook mongo_config.yaml
 ```
 
 ## 8. Start mongod Services for Each Machine
@@ -256,8 +257,9 @@ Then, run the following in 3 different machines
 ./mongod -f conf/set3svr.conf
 
 You can also creat do it with ansible:
-
-[root@master ansible]# ansible-playbook mongon_run.yaml 
+```
+[root@master ansible]# ansible-playbook mongo_run.yaml 
+```
 
 ## 9. Build Connections for Shards in Each Machine
 In the next, we connect the nodes according to the following table:
