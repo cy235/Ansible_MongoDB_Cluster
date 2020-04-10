@@ -1,9 +1,9 @@
 ---
-- hosts: machines
-  tasks:
-  - name: synchronize the /data/ folder to each host
+- hosts: machines                                     
+  tasks:                                 
+  - name: synchronize the /data/ folder to each host              
     synchronize:
-      src: /data/
+      src: /data/            
       dest: /data/
       delete: yes   # delete the files that are not found in srs folder
       recursive: yes
