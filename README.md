@@ -9,7 +9,7 @@ First, the end user put a request to the Mongos servers, then the Mongo servers 
 ## 2. Configuration of MongoDB Sharded Cluster
 The following figure show the specific configuration details for MongoDB clusters with 3 nodes/machines,
 ![image](https://github.com/cy235/MongoDB_Cluster/blob/master/MongoDB2.png)
- where a complete dataset consists of 3 sub sets (e.g. red, cyan and yellow sets in the figure), the replica of subsets are distributed in different machines. No arbiter set is allowed in configuration cluster, while both arbiter and secondary sets are allowed in
+ where a complete dataset is partutioned into 3 sub sets (e.g. red, cyan and yellow sets in the figure), the replica of subsets are distributed in different machines. No arbiter set is allowed in configuration cluster, while both arbiter and secondary sets are allowed in
 replica sets.
 ## 3. Prerequisite
 1. 3 machines A, B, C installed with CentOS, respectively
