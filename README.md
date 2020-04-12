@@ -5,7 +5,7 @@ This repo shows how to create a MongoDB sharded cluster with Ansible. All the st
 
 This figure show the process how end users access the target data in MongoDB servers.
 ![image](https://github.com/cy235/MongoDB_Cluster/blob/master/MongoDB1.png)
-First, the end user put a request to the Mongos servers, then the Mongo servers obtain the sharding configuration from the configuration clusters according to the user's request, and finally the user will access the target data.
+First, the end user put a request to the Mongos servers, say the user want to read some specific portion of the data, then the Mongo servers obtain the sharding configuration from the configuration clusters according to the user's request, which means the confifuration cluster will tell Mongo servers in which machines this specific portion of data is located, and finally the user will access the target data.
 ## 2. Configuration of MongoDB Sharded Cluster
 The following figure show the specific configuration details for MongoDB clusters with 3 nodes/machines,
 ![image](https://github.com/cy235/MongoDB_Cluster/blob/master/MongoDB2.png)
