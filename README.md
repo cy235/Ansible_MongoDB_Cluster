@@ -1,16 +1,16 @@
-# Create a MongoDB Sharded Cluster
+# Create a MongoDB Sharded Cluster with Ansible
+This repo shows how to create a MongoDB sharded cluster with Ansible. For the sake of clarity, all the steps and configuration are done both manually and with Ansible.     
 
 ## 1. Overview of MongoDB Sharded Cluster
-This repo shows how to create a MongoDB sharded cluster with Ansible. All the steps and configuration details are straightforward and easy to understand.    
-
 This figure show the process how end users access the target data in MongoDB servers.
 ![image](https://github.com/cy235/MongoDB_Cluster/blob/master/MongoDB1.png)
 First, the end user put a request to the Mongos servers, say the user want to read some specific portion of the data, then the Mongo servers obtain the sharding configuration from the configuration clusters according to the user's request, which means the configuration cluster will inform Mongo servers in which machines this specific portion of data is located, and finally the user will access the target data.
+
 ## 2. Configuration of MongoDB Sharded Cluster
 The following figure show the specific configuration details for MongoDB clusters with 3 nodes/machines,
 ![image](https://github.com/cy235/MongoDB_Cluster/blob/master/MongoDB2.png)
- where a complete dataset is partitioned into 3 sub sets (e.g. red, cyan and yellow sets in the figure), the replica of subsets are distributed in different machines. No arbiter set is allowed in configuration cluster, while both arbiter and secondary sets are allowed in
-replica sets.
+ where a complete dataset is partitioned into 3 sub sets (e.g. red, cyan and yellow sets in the figure), the replica of subsets are distributed in different machines. No arbiter set is allowed in configuration cluster, while both arbiter and secondary sets are allowed in replica sets.
+ 
 ## 3. Prerequisite
 1. 3 machines A, B, C installed with CentOS, respectively
 2. set the static IP for each machine
