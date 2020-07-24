@@ -12,7 +12,7 @@ The following figure show the specific configuration details for MongoDB cluster
  where a complete dataset is partitioned into 3 sub sets (e.g. red, cyan and yellow sets in the figure), the replica of subsets are distributed in different machines. No arbiter set is allowed in configuration cluster, while both arbiter and secondary sets are allowed in replica sets.
  
 ## 3. Prerequisite
-1. 3 machines A, B, C installed with CentOS, respectively
+1. 3 machines A, B, C installed with CentOS, respectively (login:root, password:kkk)
 2. set the static IP for each machine
 3. disable the firewall of each machine
 
